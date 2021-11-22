@@ -9,17 +9,17 @@ const MapContextProvider = (props) => {
 
     const value = {
         location,
-        bars
-        // location: location
-        // bars: bars
+        setLocation,
+        bars,
+        setBars
     }
 
     useEffect(() =>{
         navigator.geolocation.getCurrentPosition(
-            userPosition => {
+            position => {
                 setLocation({
-                    lat: userPosition.coords.latitude,
-                    lng: userPosition.coords.longitude
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
                 })
             },
             error => {
